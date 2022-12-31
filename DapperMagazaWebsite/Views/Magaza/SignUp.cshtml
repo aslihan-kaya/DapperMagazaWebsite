@@ -1,0 +1,63 @@
+﻿@model IEnumerable<DapperMagazaWebsite.Models.UserModel>
+
+@{
+    ViewBag.Title = "SignUp";
+    Layout = "~/Views/Shared/_AdminLayoutPage1.cshtml";
+}
+
+<h2>Vinta Shop Member List</h2>
+<br />
+
+<p>
+    @Html.ActionLink("Add Member", "EY")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UPhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UMail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UPassword)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UAddress)
+        </th>
+       
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UPhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UMail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UPassword)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UAddress)
+            </td>
+           
+            <td>
+                @Html.ActionLink("Edit", "EY", new { id = item.UserID }) |
+                @*@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
+                @Html.ActionLink("Delete", "Delete", new { id = item.UserID })
+            </td>
+        </tr>
+    }
+
+</table>
+<br /> <br /> <br /> <br /> <br />
